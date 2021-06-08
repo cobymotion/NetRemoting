@@ -17,9 +17,12 @@ namespace DotNetRemotingClient
             IProduct iProduct = (IProduct)(Activator.GetObject(typeof(IProduct),
                 "tcp://localhost:5223/IProduct"));
 
-            Product product = iProduct.find();
+            iProduct.add(new Product() { Id="007", Name="Este es el siete", Price = 1000 });
 
-            Console.WriteLine("{0} {1} $ {2}",product.Id, product.Name, product.Price);
+            List<Product> productos = iProduct.findAll(); 
+            foreach(Product product in productos)
+
+               Console.WriteLine("{0} {1} $ {2}",product.Id, product.Name, product.Price);
 
             Console.ReadLine(); 
 

@@ -10,5 +10,6 @@ namespace MyProduct
     {
         Product find();
         List<Product> findAll();
+        bool add(Product product);
     }
 }
